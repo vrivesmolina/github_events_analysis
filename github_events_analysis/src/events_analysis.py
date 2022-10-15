@@ -48,22 +48,12 @@ def main(
         dataset=data_to_use,
     )
 
-    user_metrics = get_user_aggregations(
+    get_user_aggregations(
         data=data_with_date,
+        output_path=user_output_path,
     )
 
-    repo_metrics = get_repo_aggregations(
+    get_repo_aggregations(
         data=data_with_date,
-    )
-
-    write(
-        dataset=user_metrics,
-        partition_column="day",
-        path=user_output_path,
-    )
-
-    write(
-        dataset=repo_metrics,
-        partition_column="day",
-        path=repository_output_path,
+        output_path=repository_output_path,
     )

@@ -4,19 +4,20 @@ from pyspark.sql.dataframe import DataFrame
 
 from github_events_analysis.src.classes.events import Event
 from github_events_analysis.src.utils.events import filter_by_event_type
+from github_events_analysis.src.utils.io import write
+from github_events_analysis.src.utils.paths import correct_path
 
 
 def get_user_aggregations(
     data: DataFrame,
-) -> DataFrame:
+    output_path: str,
+) -> None:
     """Main function in this flow, it creates the dataset of metrics for
     user aggregation
 
     Args:
        data (DataFrame): Raw dataset from which extract the metrics
-
-    Return:
-        metrics (DataFrame): Metrics related to user aggregation
+       output_path (str): Output path for user-aggregated metrics
 
     """
     filtered_data = filter_by_event_type(
@@ -24,11 +25,19 @@ def get_user_aggregations(
         events_to_keep=[Event.Issues, Event.PullRequest]
     )
 
-    metrics = _get_user_metrics(
+    type_metrics = _get_user_metrics(
         dataset=filtered_data
     )
 
-    return metrics
+    correct_output_path = correct_path(
+        path=output_path,
+    )
+
+    write(
+        dataset=type_metrics,
+        partition_column="day",
+        path=correct_output_path,
+    )
 
 
 def _get_user_metrics(
