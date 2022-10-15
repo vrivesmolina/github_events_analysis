@@ -15,6 +15,8 @@ from github_events_analysis.utils.io import write
 
 
 def main(
+    repository_output_path: str,
+    user_output_path: str,
     initial_day: int = 1,
     last_day: int = 31,
 ) -> None:
@@ -22,6 +24,9 @@ def main(
     files are written containing the results.
 
     Args:
+        user_output_path (str): Output path for user-aggregated metrics
+        repository_output_path (str): Output path for repository-aggregated
+            metrics
         initial_day (int): Initial month to analyze. The default value is
             the first day of the month.
         last_day (int): End month to analyze. The default value is 31 (since
@@ -48,11 +53,11 @@ def main(
     write(
         dataset=user_metrics,
         partition_column="day",
-        path="/Users/rives4/Desktop/users"
+        path=user_output_path,
     )
 
     write(
         dataset=repo_metrics,
         partition_column="day",
-        path="/Users/rives4/Desktop/repo"
+        path=repository_output_path,
     )
