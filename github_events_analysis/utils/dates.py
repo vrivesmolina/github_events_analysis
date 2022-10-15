@@ -1,5 +1,5 @@
 """Script that gathers all the functions needed for the transformations
-required on times and dates columns for the user aggregations"""
+required on times and dates columns for the both aggregations"""
 from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.functions import (
     col,

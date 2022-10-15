@@ -3,9 +3,6 @@ aggregation metrics"""
 from pyspark.sql.dataframe import DataFrame
 
 from github_events_analysis.classes.events import Event
-from github_events_analysis.user_aggregation.dates import (
-    extract_date_from_created_at,
-)
 from github_events_analysis.user_aggregation.events import filter_by_event_type
 
 
@@ -22,12 +19,8 @@ def get_user_aggregations(
         metrics (DataFrame): Metrics related to user aggregation
 
     """
-    data_with_date = extract_date_from_created_at(
-        dataset=data,
-    )
-
     filtered_data = filter_by_event_type(
-        dataset=data_with_date,
+        dataset=data,
         events_to_keep=[Event.Issues, Event.PullRequest]
     )
 
