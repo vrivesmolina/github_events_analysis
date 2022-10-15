@@ -48,7 +48,7 @@ def get_repo_aggregations(
     write(
         dataset=fork_metrics,
         partition_column="day",
-        path=corrected_output_path + "fork/",
+        path=corrected_output_path + "forks/",
     )
 
 
