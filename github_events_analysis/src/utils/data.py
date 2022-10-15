@@ -3,10 +3,10 @@ transformations"""
 from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.functions import col
 
-from github_events_analysis.exceptions.dates import (
+from github_events_analysis.src.exceptions.dates import (
     NotValidDatesException
 )
-from github_events_analysis.utils.spark import get_spark_session
+from github_events_analysis.src.utils.spark import get_spark_session
 
 
 def get_complete_dataset_from_dates(

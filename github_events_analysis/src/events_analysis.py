@@ -1,17 +1,19 @@
 """This script is in charge of the whole flow producing the complete set
 of results. It makes use of the `user_aggregation` and `repo_aggregation`
 packages to extract the final metrics"""
-from github_events_analysis.repo_aggregation.repo_aggs import (
+from github_events_analysis.src.repo_aggregation.repo_aggs import (
     get_repo_aggregations,
 )
-from github_events_analysis.user_aggregation.user_aggs import (
+from github_events_analysis.src.user_aggregation.user_aggs import (
     get_user_aggregations,
 )
-from github_events_analysis.utils.data import get_complete_dataset_from_dates
-from github_events_analysis.utils.dates import (
+from github_events_analysis.src.utils.data import (
+    get_complete_dataset_from_dates,
+)
+from github_events_analysis.src.utils.dates import (
     extract_date_from_created_at,
 )
-from github_events_analysis.utils.io import write
+from github_events_analysis.src.utils.io import write
 
 
 def main(

@@ -1,7 +1,7 @@
 import pytest
 
-from github_events_analysis.exceptions.dates import NotValidDatesException
-from github_events_analysis.utils.data import (
+from github_events_analysis.src.exceptions.dates import NotValidDatesException
+from github_events_analysis.src.utils.data import (
     _get_day_str,
     get_complete_dataset_from_dates,
 )
