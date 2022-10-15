@@ -1,0 +1,10 @@
+*csv
+*parquet
+*xls
+*.xls?
+*json
+*json.gz
+
+*.egg
+*.idea
+.env

@@ -42,8 +42,8 @@ def get_complete_dataset_from_dates(
             col("created_at"),
             col("actor.login").alias("actor_login"),
             col("actor.id").alias("actor_id"),
-            col("org.id").alias("project_id"),
-            col("org.login").alias("project_name")
+            col("repo.id").alias("project_id"),
+            col("repo.login").alias("project_name")
         )
 
     all_data = data[list(data.keys())[0]]
