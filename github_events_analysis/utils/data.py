@@ -67,9 +67,9 @@ def _get_day_str(
 
     """
     day_string = (
-            f"0{day}"
-            if day < 10
-            else f"{day}"
-        )
+        f"0{day}"
+        if day < 10
+        else f"{day}"
+    )
 
     return day_string
