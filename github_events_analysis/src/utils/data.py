@@ -35,7 +35,7 @@ def get_complete_dataset_from_dates(
 
     data = {}
     for day in range(initial_day, last_day + 1):
-        day_str = _get_day_str(day=day)
+        day_str = get_two_digit_str(an_int=day)
         full_day_data = spark.read.json(
             f"{data_path}/day_{day_str}"
         )
@@ -56,23 +56,23 @@ def get_complete_dataset_from_dates(
     return all_data
 
 
-def _get_day_str(
-    day: int,
+def get_two_digit_str(
+    an_int: int,
 ) -> str:
-    """Transform the day as an int to a day as a string to fulfill the format
-    of the folders to read
+    """Transform an int into a string to fulfill the format of the folders
+        to read
 
     Args:
-        day (int): Day to transform from int to str
+        an_int (int): Int to transform
 
     Return:
-        day_string (str): Day as string, with two digits
+        a_string (str): String representation of the int, with two digits
 
     """
-    day_string = (
-        f"0{day}"
-        if day < 10
-        else f"{day}"
+    a_string = (
+        f"0{an_int}"
+        if an_int < 10
+        else f"{an_int}"
     )
 
-    return day_string
+    return a_string

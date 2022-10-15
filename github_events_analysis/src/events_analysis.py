@@ -1,6 +1,9 @@
 """This script is in charge of the whole flow producing the complete set
 of results. It makes use of the `user_aggregation` and `repo_aggregation`
-packages to extract the final metrics"""
+modules to extract the final metrics"""
+
+import webbrowser
+
 from github_events_analysis.src.repo_aggregation.repo_aggs import (
     get_repo_aggregations,
 )
@@ -9,11 +12,31 @@ from github_events_analysis.src.user_aggregation.user_aggs import (
 )
 from github_events_analysis.src.utils.data import (
     get_complete_dataset_from_dates,
+    get_two_digit_str,
 )
 from github_events_analysis.src.utils.dates import (
     extract_date_from_created_at,
 )
-from github_events_analysis.src.utils.io import write
+
+
+def get_files(
+    initial_day: int,
+    final_day: int,
+) -> None:
+    """Download the files you use for the analysis
+
+    Args:
+        initial_day (int): Initial day for the data to analyse
+        final_day (int): Final day for the data to analyse
+
+    """
+    for day in range(initial_day, final_day + 1):
+        for hour in range(0, 24):
+            hour_str = get_two_digit_str(an_int=hour)
+            url = (
+                f"https://data.gharchive.org/2022-01-{day}-{hour_str}.json.gz"
+            )
+            webbrowser.open(url=url)
 
 
 def main(

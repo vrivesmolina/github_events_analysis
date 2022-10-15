@@ -2,7 +2,7 @@ import pytest
 
 from github_events_analysis.src.exceptions.dates import NotValidDatesException
 from github_events_analysis.src.utils.data import (
-    _get_day_str,
+    get_two_digit_str,
     get_complete_dataset_from_dates,
 )
 
@@ -17,5 +17,5 @@ def test_get_complete_dataset_from_dates_exception():
 
 
 def test__get_day_str():
-    assert _get_day_str(day=8) == "08"
-    assert _get_day_str(day=19) == "19"
+    assert get_two_digit_str(an_int=8) == "08"
+    assert get_two_digit_str(an_int=19) == "19"
