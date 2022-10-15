@@ -1,5 +1,5 @@
 """Script that gathers all the functions that transform a dataset by event
-information for user aggregations"""
+information for aggregations"""
 from typing import List
 
 from pyspark.sql.dataframe import DataFrame

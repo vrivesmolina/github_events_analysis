@@ -3,7 +3,7 @@ aggregation metrics"""
 from pyspark.sql.dataframe import DataFrame
 
 from github_events_analysis.classes.events import Event
-from github_events_analysis.user_aggregation.events import filter_by_event_type
+from github_events_analysis.utils.events import filter_by_event_type
 
 
 def get_user_aggregations(
@@ -41,7 +41,7 @@ def _get_user_metrics(
         dataset (DataFrame): Dataset from where we will get the metrics
 
     Return:
-        metrics (DataFrame): Aggregated dataset by user-date with number of
+        metrics (DataFrame): Aggregated dataset with number of
             starred projects, created issues and created PRs
     """
     metrics = (
@@ -49,6 +49,7 @@ def _get_user_metrics(
         .groupBy(
             [
                 "actor_login",
+                "actor_id",
                 "day",
                 "type"
             ]
