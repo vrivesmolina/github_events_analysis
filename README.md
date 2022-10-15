@@ -24,11 +24,6 @@ In addition to the analysis of the data, the project allows to use a function
 that will download the files to analyse later. These files need to be placed
 in a location that should be passed to the analysis function.
 
-## Workflow
-The metrics provided by this project are:
-- User aggregation metrics.
-- Repository aggregation metrics.
-
 ## Inputs
 ### Download files
 There are two input parameters:
@@ -50,6 +45,11 @@ the metrics for all the days in between the initial and final dates).
 metrics.
 - repository_output_path (`str`): Path where we want to get the repository
 aggregated metrics.
+
+## Workflow
+The metrics provided by this project are:
+- User aggregation metrics.
+- Repository aggregation metrics.
 
 ### Get and format the data
 The first step in the workflow is about reading and formatting the data. The
@@ -86,3 +86,23 @@ by date, in the paths that the user provided as input.
 
 
 ## How do I run the code?
+Once installed the package, you have two different options:
+- Download files
+- Run the analysis
+
+### Download files
+To download files for the GitHub archive, you need to run the `get_files`
+function, for which you will need to provide the first and last days you want
+to get the files.
+
+These files will be downloaded in your local laptop.
+
+### Run the analysis
+Once the files are downloaded, it is required that the files are put
+separately by day under a path like `this/is/your/path/day_01`,
+`this/is/your/path/day_02` and so on.
+
+Once that's done, you can run the analysis by providing the parameters detailed
+above (data_path, repository_output_path, user_output_path, initial_day,
+last_day). Once the analysis is finished, you will be able to access the
+results, which will be written in the form of .csv files in the paths provided.
