@@ -1,4 +1,4 @@
-""" This script gathers all the utilities needed to work with Spark """
+"""This script gathers all the utilities needed to work with Spark"""
 from pyspark.sql import SparkSession
 
 

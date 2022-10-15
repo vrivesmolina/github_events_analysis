@@ -1,5 +1,5 @@
-""" This script gathers all the utility functions related to data and their
-transformations """
+"""This script gathers all the utility functions related to data and their
+transformations"""
 from pyspark.sql.dataframe import DataFrame
 
 from github_events_analysis.exceptions.dates import (
@@ -12,7 +12,7 @@ def get_complete_dataset_from_dates(
     initial_day: int,
     last_day: int,
 ) -> DataFrame:
-    """ Get dataset for the input dates
+    """Get dataset for the input dates
 
     Args:
         initial_day (int): First day to get the corresponding data

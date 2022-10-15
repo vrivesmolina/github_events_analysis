@@ -1,6 +1,6 @@
-""" This script is in charge of the whole flow producing the complete set
+"""This script is in charge of the whole flow producing the complete set
 of results. It makes use of the `user_aggregation` and `repo_aggregation`
-packages to extract the final metrics """
+packages to extract the final metrics"""
 from github_events_analysis.user_aggregation.user_aggs import (
     get_user_aggregations,
 )

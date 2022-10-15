@@ -1,4 +1,4 @@
-""" This script gathers all the functions needed to extract the user
+"""This script gathers all the functions needed to extract the user
 aggregation metrics"""
 from pyspark.sql.dataframe import DataFrame
 

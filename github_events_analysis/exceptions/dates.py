@@ -1,4 +1,4 @@
-""" This script contains all the custom exceptions related to dates """
+"""This script contains all the custom exceptions related to dates"""
 import logging
 
 
