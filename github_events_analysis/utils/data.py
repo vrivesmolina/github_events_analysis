@@ -1,6 +1,7 @@
 """This script gathers all the utility functions related to data and their
 transformations"""
 from pyspark.sql.dataframe import DataFrame
+from pyspark.sql.functions import col
 
 from github_events_analysis.exceptions.dates import (
     NotValidDatesException
@@ -37,9 +38,11 @@ def get_complete_dataset_from_dates(
             f"/Users/rives4/Desktop/schneider/day_{day_str}"
         )
         data[day] = full_day_data.select(
-            "type",
-            "created_at",
-            "actor.login"
+            col("type"),
+            col("created_at"),
+            col("actor.login").alias("actor_login"),
+            col("org.id").alias("project_id"),
+            col("org.login").alias("project_name")
         )
 
     all_data = data[list(data.keys())[0]]

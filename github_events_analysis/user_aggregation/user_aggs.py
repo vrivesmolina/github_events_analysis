@@ -48,7 +48,7 @@ def _get_user_metrics(
         dataset
         .groupBy(
             [
-                "login",
+                "actor_login",
                 "day",
                 "type"
             ]

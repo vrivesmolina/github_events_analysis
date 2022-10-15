@@ -50,3 +50,9 @@ def main(
         partition_column="day",
         path="/Users/rives4/Desktop/users"
     )
+
+    write(
+        dataset=repo_metrics,
+        partition_column="day",
+        path="/Users/rives4/Desktop/repo"
+    )
