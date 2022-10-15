@@ -15,6 +15,7 @@ from github_events_analysis.utils.io import write
 
 
 def main(
+    data_path: str,
     repository_output_path: str,
     user_output_path: str,
     initial_day: int = 1,
@@ -24,6 +25,8 @@ def main(
     files are written containing the results.
 
     Args:
+        data_path (str): Input path to the data. The data must be in the form
+             of day_XX under this path
         user_output_path (str): Output path for user-aggregated metrics
         repository_output_path (str): Output path for repository-aggregated
             metrics
@@ -34,6 +37,7 @@ def main(
 
     """
     data_to_use = get_complete_dataset_from_dates(
+        data_path=data_path,
         initial_day=initial_day,
         last_day=last_day,
     )

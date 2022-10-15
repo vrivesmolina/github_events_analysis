@@ -10,6 +10,7 @@ from github_events_analysis.utils.data import (
 def test_get_complete_dataset_from_dates_exception():
     with pytest.raises(NotValidDatesException):
         get_complete_dataset_from_dates(
+            data_path="FOO",
             initial_day=8,
             last_day=7,
         )

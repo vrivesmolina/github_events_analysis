@@ -25,12 +25,16 @@ The metrics provided by this project are:
 - Repository aggregation metrics.
 
 ### Inputs
-There are four input parameters:
-- Initial date we want to get the metrics for.
-- Final date we want to get the metrics for (we will get the metrics for all
-the days in between the initial and final dates).
-- Path where we want to get the user aggregated metrics.
-- Path where we want to get the repository aggregated metrics.
+There are five input parameters:
+- data_path (`str`): Path to the location where the input data can be found.
+The data under this path must be on the form of `day_XX`.
+- initial_day (`int`): Initial date we want to get the metrics for.
+- last_day (`int`): Final date we want to get the metrics for (we will get
+the metrics for all the days in between the initial and final dates).
+- user_output_path (`str`): Path where we want to get the user aggregated
+metrics.
+- repository_output_path (`str`): Path where we want to get the repository
+aggregated metrics.
 
 ### Get and format the data
 The first step in the workflow is about reading and formatting the data. The

@@ -10,12 +10,14 @@ from github_events_analysis.utils.spark import get_spark_session
 
 
 def get_complete_dataset_from_dates(
+    data_path: str,
     initial_day: int,
     last_day: int,
 ) -> DataFrame:
     """Get dataset for the input dates
 
     Args:
+        data_path (str): Path where the data are located
         initial_day (int): First day to get the corresponding data
         last_day (int): Last day to get the corresponding data
 
@@ -35,7 +37,7 @@ def get_complete_dataset_from_dates(
     for day in range(initial_day, last_day + 1):
         day_str = _get_day_str(day=day)
         full_day_data = spark.read.json(
-            f"/Users/rives4/Desktop/schneider/day_{day_str}"
+            f"{data_path}/day_{day_str}"
         )
         data[day] = full_day_data.select(
             col("type"),
