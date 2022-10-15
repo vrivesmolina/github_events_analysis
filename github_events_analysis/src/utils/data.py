@@ -45,7 +45,7 @@ def get_complete_dataset_from_dates(
             col("actor.login").alias("actor_login"),
             col("actor.id").alias("actor_id"),
             col("repo.id").alias("project_id"),
-            col("repo.login").alias("project_name"),
+            col("repo.name").alias("project_name"),
             col("payload.forkee.forks_count").alias("number_of_forks")
         )
 
