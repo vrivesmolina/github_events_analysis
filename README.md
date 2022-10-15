@@ -19,12 +19,27 @@ file.
 The procedure to follow is the usual: create a new feature branch every time
 you want to add a feature to the code and go through the PR process.
 
+## Download files
+In addition to the analysis of the data, the project allows to use a function
+that will download the files to analyse later. These files need to be placed
+in a location that should be passed to the analysis function.
+
 ## Workflow
 The metrics provided by this project are:
 - User aggregation metrics.
 - Repository aggregation metrics.
 
-### Inputs
+## Inputs
+### Download files
+There are two input parameters:
+- initial_day (`int`): First day of the month (January 2022, in this case) for
+which we want to download files.
+- final day (`int`): Final day of the month for which we want to download
+files.
+
+The downloaded files will be stored in your `Downloads` directory.
+
+### Analysis
 There are five input parameters:
 - data_path (`str`): Path to the location where the input data can be found.
 The data under this path must be on the form of `day_XX`.

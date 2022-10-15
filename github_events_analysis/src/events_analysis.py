@@ -20,21 +20,24 @@ from github_events_analysis.src.utils.dates import (
 
 
 def get_files(
-    initial_day: int,
-    final_day: int,
+    initial_day: int = 1,
+    final_day: int = 31,
 ) -> None:
     """Download the files you use for the analysis
 
     Args:
-        initial_day (int): Initial day for the data to analyse
-        final_day (int): Final day for the data to analyse
+        initial_day (int): Initial day for the data to download
+        final_day (int): Final day for the data to download
 
     """
     for day in range(initial_day, final_day + 1):
         for hour in range(0, 24):
             hour_str = get_two_digit_str(an_int=hour)
+            day_str = get_two_digit_str(an_int=day)
             url = (
-                f"https://data.gharchive.org/2022-01-{day}-{hour_str}.json.gz"
+                f"https://data.gharchive.org/"
+                f"2022-01-{day_str}-{hour_str}"
+                f".json.gz"
             )
             webbrowser.open(url=url)
 
